@@ -1,0 +1,27 @@
+::ng-deep .snackbar-exitoso {
+    color: white!important;
+    background-color: #2926dc !important;
+    
+}
+
+
+.bg0 {
+    background-color:  #d3eaf7; 
+    height: 100%;
+}
+
+.sp0 {
+    color:  #2665dc;
+    font-size: 24px;
+}
+
+.sp1 {
+    color:  #2665dc; 
+    font-size: medium;
+}
+
+.sp2 {
+    color: #1b0d92; 
+    font-weight: bold;
+    font-size: 24px;
+}

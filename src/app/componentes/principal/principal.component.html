@@ -1,0 +1,109 @@
+<div class="alert alert-light" role="alert">
+  <div class="row">
+    <div class="col-12">
+      <h2>Lista de ciudades</h2>
+    </div>
+  </div>
+  <div class="row">
+    <!-- Izq. -->
+    <div class="col-8">
+      <div class="row">
+        <div class="col-3">
+          <mat-form-field>
+            <mat-label>Seleccione...</mat-label>
+            <mat-select (selectionChange)="consultarTiempo($event)">
+              <mat-option *ngFor="let ciudad of ciudades" [value]="ciudad">
+                {{ ciudad }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <!-- Inicio - Agregar ciudad -->
+        <div class="col-9">
+          <form [formGroup]="ciudadForm" (ngSubmit)="agregarCiudad()">
+            <div class="row">
+              <div class="col-3">
+                <mat-form-field>
+                  <mat-label>Ciudad</mat-label>
+                  <input matInput placeholder="Santiago" id="nuevaCiudad" formControlName="nuevaCiudad"/>
+                </mat-form-field>
+              </div>
+              <div class="col-3">
+                <mat-form-field>
+                  <mat-label>País</mat-label>
+                  <input matInput placeholder="Chile" id="nuevoPais" formControlName="nuevoPais"/>
+                </mat-form-field>
+              </div>
+              <div class="col-3">
+                <button mat-stroked-button [disabled]="!ciudadForm.valid" color="primary" type="submit">
+                  Agregar ciudad
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <!-- Fin - Agregar ciudad -->
+
+
+      </div>
+    </div>
+    <!-- Der. -->
+    <div class="col-4"></div>
+  </div>
+</div>
+
+
+<div class="bg0">
+<div class="row pt-5">  
+  <div class="col-1"></div>
+  <div class="col-1">
+    <img [src]="tiempoActual.icono" alt="">  
+  </div>
+  <div class="col-2">
+    <h2><span class="sp0">{{ tiempoActual.ciudad }}</span></h2>  
+ </div>
+</div>
+
+<!-- información -->
+<div class="row">
+  <div class="col-2"></div>
+  <div class="col-1">
+    <div class="sp1" *ngIf="tiempoActual.ciudad != null">Tiempo</div>
+  </div>
+  <div class="col-1 sp1">
+    <div class="sp1" *ngIf="tiempoActual.ciudad != null">Temp</div>
+  </div>  
+  <div class="col-1">
+    <div class="sp1" *ngIf="tiempoActual.ciudad != null">Min</div>
+  </div>  
+  <div class="col-1">
+    <div class="sp1" *ngIf="tiempoActual.ciudad != null">Max</div>
+  </div>  
+  <div class="col-1">
+    <div class="sp1" *ngIf="tiempoActual.ciudad != null">Hora</div>
+  </div>  
+  <div class="col-5"></div>
+</div>
+
+<div class="row">
+  <div class="col-2"></div>
+  <div class="col-1">
+    <div class="sp2 pt-1" *ngIf="tiempoActual.ciudad != null">{{ tiempoActual.tiempo }}</div>    
+  </div>  
+  <div class="col-1">
+    <div class="sp2 pt-1" *ngIf="tiempoActual.ciudad != null">{{ tiempoActual.temperatura }}</div>       
+  </div>
+  <div class="col-1">
+    <div class="sp2 pt-1" *ngIf="tiempoActual.ciudad != null">{{ tiempoActual.temperaturaMin }}</div>       
+  </div>  
+  <div class="col-1">
+    <div class="sp2 pt-1" *ngIf="tiempoActual.ciudad != null">{{ tiempoActual.temperaturaMax }}</div>       
+  </div>  
+  <div class="col-1">
+    <div class="sp2 pt-1" *ngIf="tiempoActual.ciudad != null">{{ tiempoActual.hora }}</div>       
+  </div>  
+
+  <div class="col-5"></div>
+</div>
+</div>

@@ -1,0 +1,10 @@
+.d1 {
+    background-color: black; 
+    height: 10%;
+}
+
+.d2 {
+    top: 10px; 
+    left: 15px; 
+    position: relative;
+}
